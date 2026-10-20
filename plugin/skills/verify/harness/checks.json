@@ -1,0 +1,108 @@
+{
+ "schemaVersion": "1",
+ "note": "Реестр check.id из conventions.json/states.json → чем проверяется. implemented: gate:<линия> (харнесс считает сам) · human (ручная приёмка: pass только с записью что/где/на какой ревизии) · null (реализации нет). Статус в вердикте: done / not-run{reason}.",
+ "checks": {
+  "apca-both-themes": {
+   "method": "browser",
+   "implemented": "gate:contrast+brand_text",
+   "lines": [
+    "contrast_*",
+    "brand_text_mismatch"
+   ]
+  },
+  "overflow-widths": {
+   "method": "browser",
+   "implemented": "gate:sweep",
+   "lines": [
+    "overflow_widths",
+    "region_overflow"
+   ]
+  },
+  "scenario-walk": {
+   "method": "browser",
+   "implemented": "gate:scenarios",
+   "lines": [
+    "scenarios_audited",
+    "scenario_noop",
+    "scenario_unreachable"
+   ],
+   "requires": "scenarios.manifest.json"
+  },
+  "theme-modes": {
+   "method": "browser",
+   "implemented": "gate:dark_pass",
+   "lines": [
+    "contrast_dark_*",
+    "dark_pass"
+   ]
+  },
+  "shell-runtime": {
+   "method": "browser",
+   "implemented": "gate:console+visible",
+   "lines": [
+    "console_errors",
+    "valid"
+   ],
+   "partial": "порядок провайдеров виден только по крашу/консоли"
+  },
+  "icon-only-tooltip": {
+   "method": "static",
+   "implemented": null,
+   "candidate": "gate:dom — .g-button без текста и без aria-label/title/ActionTooltip-обёртки"
+  },
+  "inner-scroll": {
+   "method": "browser",
+   "implemented": null,
+   "candidate": "gate:frame — документ не скроллится при bounded, скролл-контейнер есть"
+  },
+  "panel-last-row": {
+   "method": "browser",
+   "implemented": null,
+   "candidate": "gate:dom — последняя строка списка видна при открытой ActionsPanel"
+  },
+  "unsaved-guard": {
+   "method": "browser",
+   "implemented": "human"
+  },
+  "submit-pending-error": {
+   "method": "browser",
+   "implemented": "human"
+  },
+  "field-validation": {
+   "method": "browser",
+   "implemented": "human"
+  },
+  "destructive-confirm": {
+   "method": "browser",
+   "implemented": "human"
+  },
+  "selection-actions-visible": {
+   "method": "browser",
+   "implemented": "human"
+  },
+  "selection-after-filter": {
+   "method": "browser",
+   "implemented": "human"
+  },
+  "operation-feedback": {
+   "method": "browser",
+   "implemented": "human"
+  },
+  "loading-layout": {
+   "method": "human",
+   "implemented": "human"
+  },
+  "error-placement": {
+   "method": "human",
+   "implemented": "human"
+  },
+  "composite-consistency": {
+   "method": "human",
+   "implemented": "human"
+  },
+  "partial-render": {
+   "method": "browser",
+   "implemented": "human"
+  }
+ }
+}

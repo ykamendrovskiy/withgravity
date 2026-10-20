@@ -1,0 +1,6 @@
+# traps/icons — иконка в контроле: слот, размер, инсет, цвет
+
+- **Слоты:** `Button` — просто `children` (детектится и сайзится сам, `BUTTON_ICON_SIZE_MAP`); `TextInput` — `startContent` / `endContent` (не `leftContent`); `Label` — проп `icon`; у `Select` слота нет (`renderControl`).
+- **Размер — вне `Button` руками:** `Icon` без `size` падает на viewBox ≈16px (у `Icon.css` нет width/height). Шкала (дефолт, сервис тюнит под плотность): Button xs 12 · s 14 · m/l 16 · xl 20; Label xxs/xs 12 · s 14 · m 16; инпуты s/m 14–16 · l 16 · xl 20.
+- **Инсет старт-иконки в инпутах — обёрткой:** слот `startContent` тесный by design (`padding-inline-start: 1px`), пропа инсета нет. `<span style={{display:'inline-flex', alignItems:'center', paddingInlineStart:'var(--g-spacing-2)', paddingInlineEnd:'var(--g-spacing-1)'}}><Icon …/></span>`; s/m — 8px (`spacing-2`), l/xl — 12px (`spacing-3`). Гейт меряет (`input_icon_inset`).
+- **Цвет иконки в инпуте — как соседняя надпись или на шаг легче, тяжелее нельзя:** плейсхолдер = `--g-color-text-hint` → иконка поиска `hint`; рядом со значением — `secondary`/`hint`; без цвета наследует `text-primary` (слишком тяжело). `Icon` рисует `currentColor` → `color` на обёртке.

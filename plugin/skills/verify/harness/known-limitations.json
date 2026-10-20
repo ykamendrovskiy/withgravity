@@ -1,0 +1,27 @@
+{
+ "schemaVersion": "1",
+ "note": "Известные ограничения библиотеки: находка контраста помечается known:<id>, если элемент под selector (и внутри context, если задан) в теме theme имеет цвет, РАВНЫЙ вычисленному expected_token (переопределённый цвет known не получает). Находка остаётся в списке; в итог идёт отдельным счётчиком contrast_known. Записи узкие: версия, тема, состояние, основание.",
+ "known": [
+  {
+   "id": "uikit.segmented-checked-dark",
+   "selector": ".g-segmented-radio-group__option_checked .g-segmented-radio-group__option-text",
+   "theme": "dark",
+   "expected_token": "--g-color-text-brand-heavy",
+   "lib": "@gravity-ui/uikit",
+   "versions": "7.47–7.51",
+   "reason": "выбранная опция SegmentedRadioGroup в тёмной теме — text-brand-heavy на base-background, Lc≈33–38; штатная пара токенов (фикстура contrast-scroll: невыбранная проходит)",
+   "source": "пилот min 2026-10-19 (Коллекции/Список/Все Lc −33.4/−37.9), фикстура 2026-10-20"
+  },
+  {
+   "id": "uikit.label-content-dark",
+   "selector": ".g-label__content",
+   "context": ".g-label",
+   "theme": "dark",
+   "expected_token": "--_--text-color",
+   "lib": "@gravity-ui/uikit",
+   "versions": "7.47–7.51",
+   "reason": "текст Label на собственной тонированной подложке в тёмной теме, Lc≈40–43 у theme=unknown/warning; штатные пары токенов",
+   "source": "пилот min 2026-10-19, базовая копия"
+  }
+ ]
+}

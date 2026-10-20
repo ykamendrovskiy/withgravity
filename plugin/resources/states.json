@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1",
+  "note": "Каталог видов состояний экрана/области/операции. Не атрибут экрана: build по таблице признаков предлагает применимые; обязательные для обещанного поведения делаются в задаче, исследовательский объём выбирает человек; принятые → scenarios.manifest.json. Показ — компонентами официального скилла; достижение — реальным потоком данных.",
+  "states": [
+    {"id": "loading", "scope": "screen|area", "applies_to": {"all": [{"fact": "operation.async", "eq": true}]}, "show": "Skeleton строк/блоков, держит раскладку", "reach": "реальный async-запрос", "required": true, "check": {"method": "browser", "id": "scenario-walk"}},
+    {"id": "empty", "scope": "screen|area", "applies_to": {"all": [{"fact": "operation.async", "eq": true}]}, "variants": ["onboarding", "cleared", "no-results"], "show": "PlaceholderContainer + текст + действие", "reach": "данных нет / фильтр без результатов", "required": true, "check": {"method": "browser", "id": "scenario-walk"}},
+    {"id": "partial", "scope": "area", "applies_to": {"all": [{"fact": "operation.async", "eq": true}]}, "show": "рендер того, что есть + дозагрузка; при refetch — вуаль без прыжка", "reach": "пагинация / фоновый refetch", "required": false, "check": {"method": "human", "id": "partial-render"}},
+    {"id": "error", "scope": "screen|area", "applies_to": {"all": [{"fact": "operation.async", "eq": true}]}, "show": "page: PlaceholderContainer + retry; area/background: тост", "reach": "реальный сбой запроса", "required": true, "check": {"method": "browser", "id": "scenario-walk"}},
+    {"id": "ideal", "scope": "screen", "applies_to": {"all": []}, "show": "обычный рендер", "reach": "—", "required": true, "check": {"method": "browser", "id": "scenario-walk"}},
+    {"id": "operation.pending", "scope": "operation", "applies_to": {"all": [{"fact": "form.hasSubmit", "eq": true}, {"fact": "operation.async", "eq": true}]}, "show": "кнопка disabled + Loader, поля заблокированы", "reach": "реальный submit", "required": true, "check": {"method": "browser", "id": "submit-pending-error"}},
+    {"id": "operation.failed", "scope": "operation", "applies_to": {"all": [{"fact": "form.hasSubmit", "eq": true}, {"fact": "operation.async", "eq": true}]}, "show": "сообщение в контексте формы, форма открыта, ввод сохранён", "reach": "ошибка submit", "required": true, "check": {"method": "browser", "id": "submit-pending-error"}},
+    {"id": "unsaved", "scope": "operation", "applies_to": {"all": [{"fact": "form.hasDirtyData", "eq": true}]}, "show": "подтверждение «Закрыть без сохранения?»", "reach": "закрытие с изменениями", "required": true, "check": {"method": "browser", "id": "unsaved-guard"}}
+  ]
+}
