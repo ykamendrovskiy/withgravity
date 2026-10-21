@@ -9,6 +9,7 @@
 VITE_SCENARIOS=1 npm run build                      # сборка с живыми сценариями (plain build их вырезает)
 npx vite preview --port <временный> --strictPort &  # предпросмотр на временном порту, не на порту пользователя
 node <скилл>/harness/run-gate.mjs http://localhost:<порт> <проект> <проект>/gate-out   # [--plan=<файл>] [--fail-on=any|high] [--strict]
+node <скилл>/harness/run-gate.mjs --static-only <проект> <проект>/gate-out               # статический режим: без URL и без Playwright
 ```
 Полный режим требует Playwright (ищется: проект → `GRAVITY_GATE_PLAYWRIGHT` → рядом → глобальный npm; одна установка на машину:
 `npm i -g playwright && playwright install chromium`, ~130 МБ — спроси). Нет Playwright → гейт сам уходит в **static-only**: только
