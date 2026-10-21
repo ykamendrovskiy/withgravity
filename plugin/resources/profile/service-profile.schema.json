@@ -579,6 +579,47 @@
           "type": "string"
         }
       }
+    },
+    "libraries": {
+      "type": "array",
+      "description": "Библиотеки сервиса: npm-пакеты, копии исходников, Figma-библиотеки. kind: npm | source-copy | figma | other; для npm — name+version, для source-copy — name+version (commit), для figma — name+key.",
+      "items": {
+        "type": "object",
+        "required": [
+          "kind",
+          "name"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "npm",
+              "source-copy",
+              "figma",
+              "other"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
     }
   }
 }
