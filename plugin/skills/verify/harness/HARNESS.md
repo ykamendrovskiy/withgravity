@@ -31,7 +31,8 @@ node <скилл>/harness/run-gate.mjs http://localhost:<порт> <проект
 - Находка → чини **классом** по записи (`conventions.json`, `snippets/`, `traps/`), не константой под чек; максимум 2 итерации, re-gate.
   Ширинозависимые замеры называй с шириной.
 - `not-run` измеримое (панель над последней строкой, внутренний скролл, валидация, guard) → выполни Playwright-скриптом и запиши в
-  `gate-out/evidence.json`: `{check, scope, revision, executor: gate|agent-script|human, result: pass|fail|inconclusive, artifact}`;
+  `gate-out/evidence.json` — объект `{schemaVersion: "1", note?, items: [{check, scope, revision, executor: gate|agent-script|human,
+  result: pass|fail|inconclusive, artifact}]}`; `revision` — git sha сборки, не дата;
   суждение, требующее человека, — остаётся открытым. AUDIT.md — из вердикта и evidence, не из памяти.
 - `known` — не твоя находка и не «чисто»: строка «известные ограничения: N».
 - Скриншоты `gate-out/full*.png` — глаза на все состояния; впечатление чинится только после замера.

@@ -4,3 +4,4 @@
 - **App-рамка — обязанность сборки:** контент-колонке `height: 100vh` (+ `min-height`-гард), скролл внутрь области (`overflow-y:auto`), не `height:100%`. В манифесте — `frame: {viewport: true, minHeight}` (гейт меряет `frame_leak`, `pinned_drift`, `chrome_squeeze`).
 - **`ActionBar` в колонке-рамке — `flex-shrink: 0` сам:** бар высоту не защищает (verified: 40→28px на лестнице 900→560).
 - `PageLayout` + `PageLayoutAside` + `PageLayout.Content` — про сплит поддеревьев, `topAlert` и контекст ширины, не про высоту; ширину контента `AsideHeader` синхронизирует сам.
+- **`AsideHeader` `panelItems`: панель (Drawer) по умолчанию 400px и содержимое вылезает за подложку** — для панели с формой/настройками задай `size: 'auto'` (или нужную ширину) у элемента `panelItems` (прогон 2026-10-21, navigation 7.1: Settings 834px при дефолтных 400).

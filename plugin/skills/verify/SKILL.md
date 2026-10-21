@@ -16,8 +16,8 @@ description: >-
    (по плану: гейт пересчитывает применимость сам; `fact_mismatch` — признак в плане записан неверно, находка о плане;
    `needs_clarification` — unknown; каждая проверка — execution done / not-run с причиной).
 4. **not-run с `needs_human`** — измеримое выполни сам скриптом (Playwright из гейта) и запиши evidence: метод · исполнитель
-   (гейт / агент-скрипт / человек) · область · ревизия · замер; result pass / fail / inconclusive — **в `gate-out/evidence.json`**, одна
-   запись на проверку; AUDIT.md и сводка для человека строятся из вердикта + evidence (единая сводка, не пересказ). Суждение, требующее
+   (гейт / агент-скрипт / человек) · область · ревизия · замер; result pass / fail / inconclusive — **в `gate-out/evidence.json`** (объект `{schemaVersion, items[]}`), одна
+   запись на проверку, `revision` — sha сборки; AUDIT.md и сводка для человека строятся из вердикта + evidence (единая сводка, не пересказ). Суждение, требующее
    человека, остаётся открытым. `no_implementation` / `no_scenarios_manifest` — честно not-run.
 5. Находки чини классами по записям (`../../resources/conventions.json`, `snippets/`, `traps/`), максимум 2 итерации, re-gate.
    Известное ограничение (`known`) — не твоя находка и не «чисто»: строкой «известные ограничения: N».

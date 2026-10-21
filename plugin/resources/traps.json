@@ -1,4 +1,5 @@
-{"note": "Индекс адресных граблей: открывать файл по пакету перед импортом компонента; кросс-пакетные правила — у официального скилла, API — в типах пакета. Полный набор 32 файлов до сжатия — lab/thin-moved/traps-full-r4 (авторский репо).",
+{
+ "note": "Индекс адресных граблей: открывать файл по пакету перед импортом компонента; кросс-пакетные правила — у официального скилла, API — в типах пакета. Полный набор 32 файлов до сжатия — lab/thin-moved/traps-full-r4 (авторский репо).",
  "files": {
   "uikit": "resources/traps/uikit.md — имена, пропы (NumberInput/Select/TextInput/PlaceholderContainer/Table HOC/Dialog.Footer), Breadcrumbs в ActionBar, DropdownMenu, Card selection, ListItemView, SegmentedRadioGroup, Stepper, DefinitionList",
   "table": "resources/traps/table.md — @gravity-ui/table: импорты, выбор, actions, настройки колонок, группировка, unstable refs, ширины/скролл",
@@ -8,5 +9,7 @@
   "dates": "resources/traps/dates.md — локаль, invalid-даты v4",
   "markdown-editor": "resources/traps/markdown-editor.md — вкрутка, ToasterProvider, stickyToolbar, высота",
   "page-constructor": "resources/traps/page-constructor.md — конфиг блока, border-box, темы карточек, slider, placeholder-svg",
-  "components": "resources/traps/components.md — каталог @gravity-ui/components, ConfirmDialog, FormRow"
- }}
+  "components": "resources/traps/components.md — каталог @gravity-ui/components, ConfirmDialog, FormRow",
+  "uikit-themer": "resources/snippets/theme-from-brand-color.md — кастомная тема из цвета: updateBaseColor не переводит бренд-группу токенов (остаётся yellow), text-brand-contrast выбирать по APCA"
+ }
+}
