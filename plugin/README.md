@@ -6,7 +6,7 @@
 
 **Скиллы:** `build` (новый проект · новая страница · локальная правка · смена темы/обвязки) · `research-prototype` (состояния, панель, deep link) ·
 `profile` (создание интервью / обновление по поручению, машинная валидация) · `verify` (гейт + план приёмки + сравнение копий шаблона) ·
-`catalog` · `feedback`. Алиасы 0.7.x: `create` → build, `synthesize-profile` → profile, `write-back` → feedback + profile.
+`catalog` · `feedback`.
 
 **Установка:** плагин (`--plugin-dir` или marketplace) + официальный скилл: `npx skills add gravity-ui/skills`; для надёжной
 авто-активации вставь блок «Activation tip» из README gravity-ui/skills в `AGENTS.md` проекта. Полная проверка требует Playwright
@@ -23,6 +23,7 @@
 - Проверено на Vite-проектах; Next.js/Remix — гейт по URL без скаффолда.
 
 ## Что изменилось относительно 0.7.4
+Прежние имена скиллов (`create`, `synthesize-profile`, `write-back`) не поддерживаются: сборка — `build`, профиль — `profile`, фидбек — `feedback` + `proposals.json`.
 Онтология вместо гайдов: `conventions.json`/`states.json` с предикатами, `acceptance-plan.json`, `checks.json`, `known-limitations.json`,
 `validate.mjs` профиля, TemplateUse-карточки; грабли сжаты до одного файла на пакет (дубли официального скилла удалены); registry и
 AGENTS.md сняты. Прежний формат пакета профиля (`blocks/` + `archetypes/`) читается как шаблоны.

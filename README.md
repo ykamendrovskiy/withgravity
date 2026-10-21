@@ -16,6 +16,6 @@ npx skills add gravity-ui/skills        # официальный скилл — 
 Полная проверка — Playwright: `npm i -g playwright && playwright install chromium`; без него гейт работает в static-only.
 
 ## Что внутри
-Скиллы `build` · `research-prototype` · `profile` · `verify` · `catalog` · `feedback` (+ алиасы `create`, `synthesize-profile`, `write-back`).
+Скиллы `build` · `research-prototype` · `profile` · `verify` · `catalog` · `feedback`.
 Модель — `plugin/resources/model.md`; что считается проверенным — `plugin/skills/verify/harness/HARNESS.md`; ограничения и
 экспериментальное — `plugin/README.md`.
