@@ -9,8 +9,8 @@
    "expected_token": "--g-color-text-brand-heavy",
    "lib": "@gravity-ui/uikit",
    "versions": "7.47–7.51",
-   "reason": "выбранная опция SegmentedRadioGroup в тёмной теме — text-brand-heavy на base-background, Lc≈33–38; штатная пара токенов (фикстура contrast-scroll: невыбранная проходит)",
-   "source": "пилот min 2026-10-19 (Коллекции/Список/Все Lc −33.4/−37.9), фикстура 2026-10-20"
+   "reason": "выбранная опция SegmentedRadioGroup в тёмной теме — text-brand-heavy на base-background, Lc≈33–38; штатная пара токенов (контроль на фикстуре гейта)",
+   "source": "замер 2026-10"
   },
   {
    "id": "uikit.label-content-dark",
@@ -21,7 +21,7 @@
    "lib": "@gravity-ui/uikit",
    "versions": "7.47–7.51",
    "reason": "текст Label на собственной тонированной подложке в тёмной теме, Lc≈40–43 у theme=unknown/warning; штатные пары токенов",
-   "source": "пилот min 2026-10-19, базовая копия"
+   "source": "замер 2026-10"
   }
  ]
 }
