@@ -1,4 +1,6 @@
-# gravity-build-thin
+# withgravity
+
+> «with gravity» — сборка на Gravity UI как принято.
 
 Тестовая сборка тонкого плагина Claude Code для сборки «как принято» на [Gravity UI](https://gravity-ui.com) поверх официального
 скилла [`gravity-ui`](https://github.com/gravity-ui/skills). Отдельный репозиторий — чтобы подключить чистую установку и потестить;
@@ -6,8 +8,8 @@
 
 ## Установка
 ```
-/plugin marketplace add ykamendrovskiy/gravity-build-thin
-/plugin install gravity-build-thin@gravity-build-thin
+/plugin marketplace add ykamendrovskiy/withgravity
+/plugin install withgravity@withgravity
 npx skills add gravity-ui/skills        # официальный скилл — обязателен
 ```
 Для надёжной авто-активации официального скилла — блок «Activation tip» из README gravity-ui/skills в `AGENTS.md` проекта.

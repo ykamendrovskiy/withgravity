@@ -1,12 +1,12 @@
 {
-  "name": "gravity-build-thin",
+  "name": "withgravity",
   "description": "Тонкий плагин сборки на Gravity UI поверх официального скилла gravity-ui: модель сервиса (профиль, шаблоны, записи конвенций и состояний, план приёмки) и честная проверка. Тестовая сборка для чистой установки.",
   "owner": {
     "name": "ykamendrovskiy"
   },
   "plugins": [
     {
-      "name": "gravity-build-thin",
+      "name": "withgravity",
       "source": "./plugin",
       "description": "Сборка и доработка прототипов на Gravity UI поверх официального скилла gravity-ui: корректность — у официального; плагин держит модель (профиль, шаблоны, записи конвенций и состояний, план приёмки, проверки) и тонкие процедуры: build · research-prototype · profile · verify · feedback. Figma-конвейер — вне поставки (внутренняя библиотека, экспериментально)."
     }
