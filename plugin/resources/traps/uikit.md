@@ -42,3 +42,9 @@
 
 ## В лаборатории (снято из поставки 2026-10-20, не подтверждено на 7.47–7.51)
 Safari: двоение вуали `Dialog` выше вьюпорта на 7.4x (workaround через `modalClassName`) — `lab/thin-moved/traps/uikit-dialog-safari.md`.
+
+## Из прогонов (2026-10-21, uikit 7.51)
+| Симптом | Причина | Что делать |
+|---|---|---|
+| `Progress` во flex-колонке шириной 0 | у `.g-progress` `margin: 0 auto` (центрирование как блока) | блочный родитель с заданной шириной или `width: 100%` на обёртке |
+| `NumberInput` после сброса в `undefined` перестаёт обновляться | переход controlled → uncontrolled | сбрасывать в `null`, не в `undefined` |
