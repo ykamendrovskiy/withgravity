@@ -2,13 +2,22 @@
 
 Подключается, когда нужны переключаемые состояния для показа/исследования; манифест читает `verify` и обходит все состояния.
 
-**Переключатель — dev-only, мёртв в prod-билде:**
+**Переключатель живёт в dev и в demo-сборке; clean-сборка его не содержит:**
 ```tsx
 // src/scenarios.ts
-export const SCENARIOS_ON = import.meta.env.DEV || !!import.meta.env.VITE_SCENARIOS;
+export const SCENARIOS_ON = import.meta.env.DEV || import.meta.env.VITE_SCENARIOS === '1'; // env — строки: '0'/'false' не включают
 export const scenario = SCENARIOS_ON ? (new URLSearchParams(location.search).get('scenario') ?? 'ideal') : 'ideal';
 ```
-Сборка для гейта — `VITE_SCENARIOS=1 npm run build` (в `vite preview` `DEV` уже false); нужен `src/vite-env.d.ts`.
+Две сборки, обе через проектную цепочку (`tsc && vite build`, не голый `vite build`): **clean** — `npm run build`, без сценариев и панели;
+**demo** — named script `build:demo` = `VITE_SCENARIOS=1` + `--base ./` (или base целевого хостинга); для гейта — тоже demo. Нужен `src/vite-env.d.ts`.
+
+**Упаковка для показа коллегам** (`npm run build:demo` → `dist/`): пакет самодостаточен (не зависит от dev-сервера и файлов вне `dist/`;
+внешние API/шрифты либо включены, либо перечислены в README как зависимости); deep links `?scenario=`, `?theme=`, панель и сброс работают
+после refresh под непустым префиксом хостинга; демо-данные и localStorage определены (данные автора не едут к коллеге, начальное состояние
+воспроизводимо); README в `dist/` или рядом: как открыть/разместить, стартовый экран, ссылки на сценарии, известные ограничения. Проверяй
+**собранный** пакет на временном статическом сервере под префиксом (`npx serve dist` или `vite preview --base`), не dev. Один HTML-файл для
+открытия как `file://` — отдельный режим (vite-plugin-singlefile), проверяется именно через `file://`, включая данные и сценарии. Публикация,
+адрес, пароль и доступ — командный скилл/инфраструктура; плагин отдаёт проверенный каталог и параметры размещения, сам не публикует.
 
 **Манифест `scenarios.manifest.json`** в корне проекта:
 ```jsonc

@@ -4,16 +4,22 @@
 > Выход — `src/theme/brand.css` (импорт **после** `styles.css`) + `brand.theme.json`; путь записывается в профиль `theme.themeConfig.css`.
 > Источник: замер 2026-10 (uikit-themer 2.0.0, uikit 7.51), замеры в браузере.
 
-## Две ловушки (без них UI остаётся жёлтым, а текст на бренде — тёмным)
-1. **В библиотеке `updateBaseColor({colorToken: 'brand'})` пересобирает только приватную палитру `brand`** (проверено на 1.8.0 и 2.0.0:
-   `DEFAULT_THEME.utilityColors['base-brand'].ref` до и после = `private.yellow.550-solid`). Утилитарные токены бренд-группы (`base-brand`,
-   `base-brand-hover`, `base-selection*`, `line-brand`, `text-brand*`, `text-link`, `text-link-hover`) остаются на **yellow/orange** →
-   интерфейс по-прежнему жёлтый. Веб-Themer делает перенос сам (пресеты несут готовые utilityColors; в коде TODO «use updateUtilityColor
-   from uikit-themer») — при генерации из библиотеки это надо сделать руками: перевести ссылки бренд-группы на `brand` тем же индексом
-   (ниже). `text-link-visited` (purple) и `warning` (yellow) — не бренд.
-2. **`text-brand-contrast` — решение автора темы, не библиотеки.** В веб-Themer это ручной контрол, контраст оценивает тот, кто делает
-   тему; в дефолте стоит тёмный текст (под жёлтый). Плагин **предлагает** вариант по APCA (`text-dark-primary` / `text-light-primary`, выше Lc к
-   `base-brand`, на каждую тему отдельно) и записывает Lc в сдачу как решение владельца; ниже 60 — скажи явно, не «исправляй» оттенок бренда.
+## Границы рецепта
+Рассчитан на `DEFAULT_THEME` библиотеки версий 1.8.0 и 2.0.0 (проверено): перевод ссылок yellow/orange → brand применять только к ней, в чужой
+теме жёлтые ссылки могут быть осмысленными. Один цвет на light и dark — дефолт генератора, не намерение владельца (в тёмной теме средние тона
+дают контраст ниже). Путь к теме в `service-profile.json` записывается только при поручении на профиль.
+
+## Две ловушки
+1. **`updateBaseColor({colorToken: 'brand'})` пересобирает только приватную палитру `brand`** — так и обещает README; утилитарные токены
+   бренд-группы (`base-brand`, `base-brand-hover`, `base-selection*`, `line-brand`, `text-brand*`, `text-link`, `text-link-hover`) остаются на
+   **yellow/orange** → интерфейс по-прежнему жёлтый. Веб-Themer переносит их сам (пресетами). При генерации из библиотеки переведи ссылки
+   бренд-группы на `brand` тем же индексом через `updateUtilityColor` (ниже); `text-link-visited` (purple) и `warning` (yellow) не трогать.
+2. **`text-brand-contrast` выбирает автор темы, не библиотека** (в веб-Themer это ручной контрол; в дефолте тёмный текст под жёлтый). Генератор
+   ниже выбирает по правилу — больший APCA из `text-dark-primary` / `text-light-primary` на каждую тему; в сдаче это **решение генератора**,
+   решением владельца оно становится после подтверждения. Lc ниже 60 — предупреждение (порог рецепта, не гарантия читаемости всех размеров).
+
+Стенд (uikit-themer 2.0.0, четыре цвета): переведено 18 ссылок; `warning` и `visited` не тронуты; выбор текста — светлый бренд `#F2F2F2` →
+тёмный текст Lc 95/97; тёмный `#1B1F3B` → светлый Lc 106/84; `#6C91C9` → светлый 65/54; `#E53935` → светлый 73/58 (light/dark).
 
 ```js
 // scripts/generate-theme.mjs — node scripts/generate-theme.mjs
@@ -56,5 +62,5 @@ for (const variant of ['light', 'dark']) {
 writeFileSync('src/theme/brand.css', generateCSS({theme}));
 writeFileSync('src/theme/brand.theme.json', JSON.stringify(generateJSON({theme}), null, 2));
 ```
-Проверка: после сборки `getComputedStyle(.g-root).getPropertyValue('--g-color-base-brand')` в обеих темах = цвет бренда; гейт —
-`brand_text_mismatch` 0. Кандидат в апстрим uikit-themer: `updateBaseColor('brand')` не переводит бренд-группу — issue/PR или строка в README.
+Проверка: в обеих темах `--g-color-base-brand`, `-hover`, `--g-color-text-link`, `--g-color-base-selection` = оттенки бренда, `warning`/`visited`
+прежние (вычисленные значения на `.g-root`); гейт — `brand_text_mismatch` 0; видимый результат — кнопка, ссылка, выделение в light и dark. Кандидат в апстрим uikit-themer: `updateBaseColor('brand')` не переводит бренд-группу — issue/PR или строка в README.
