@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.9.7 — 2026-10-21
+- Уточнения по замечаниям владельца: тема из цвета — перенос бренд-группы нужен именно при генерации библиотекой (веб-Themer делает его сам), text-brand-contrast — решение автора темы, плагин только предлагает по APCA; uikit Progress во flex-колонке схлопывается из-за `margin: 0 auto` (трап).
+
 ## 0.9.6 — 2026-10-21
 - Из второго прогона владельца: сниппет `theme-from-brand-color.md` (uikit-themer: бренд-группа токенов остаётся yellow после updateBaseColor, text-brand-contrast по APCA) — build ссылается на него для «кастомной темы по цвету»; traps/navigation: ширина панели AsideHeader `size: 'auto'`; evidence.json — объект `{schemaVersion, items[]}`, revision = sha.
 

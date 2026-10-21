@@ -5,12 +5,15 @@
 > Источник: прогон владельца 2026-10-21 (uikit-themer 2.0.0, uikit 7.51), замеры в браузере.
 
 ## Две ловушки (без них UI остаётся жёлтым, а текст на бренде — тёмным)
-1. **`updateBaseColor({colorToken: 'brand'})` пересобирает только приватную палитру `brand`.** Утилитарные токены бренд-группы в
-   `DEFAULT_THEME` (`base-brand`, `base-brand-hover`, `base-selection*`, `line-brand`, `text-brand*`, `text-link`, `text-link-hover`)
-   ссылаются на палитры **yellow/orange** (дефолтный бренд Gravity) → после генерации интерфейс по-прежнему жёлтый. Переведи ссылки
-   бренд-группы на `brand` тем же индексом через `updateUtilityColor` (ниже). `text-link-visited` (purple) и `warning` (yellow) — не бренд.
-2. **`text-brand-contrast` в дефолте — тёмный текст** (под жёлтый). Для синего/зелёного бренда нужен светлый: выбери из `text-dark-primary` /
-   `text-light-primary` тот, у кого выше APCA к `base-brand`, на каждую тему отдельно; получившийся Lc запиши в сдачу (ниже 60 — скажи).
+1. **В библиотеке `updateBaseColor({colorToken: 'brand'})` пересобирает только приватную палитру `brand`** (проверено на 1.8.0 и 2.0.0:
+   `DEFAULT_THEME.utilityColors['base-brand'].ref` до и после = `private.yellow.550-solid`). Утилитарные токены бренд-группы (`base-brand`,
+   `base-brand-hover`, `base-selection*`, `line-brand`, `text-brand*`, `text-link`, `text-link-hover`) остаются на **yellow/orange** →
+   интерфейс по-прежнему жёлтый. Веб-Themer делает перенос сам (пресеты несут готовые utilityColors; в коде TODO «use updateUtilityColor
+   from uikit-themer») — при генерации из библиотеки это надо сделать руками: перевести ссылки бренд-группы на `brand` тем же индексом
+   (ниже). `text-link-visited` (purple) и `warning` (yellow) — не бренд.
+2. **`text-brand-contrast` — решение автора темы, не библиотеки.** В веб-Themer это ручной контрол, контраст оценивает тот, кто делает
+   тему; в дефолте стоит тёмный текст (под жёлтый). Плагин **предлагает** вариант по APCA (`text-dark-primary` / `text-light-primary`, выше Lc к
+   `base-brand`, на каждую тему отдельно) и записывает Lc в сдачу как решение владельца; ниже 60 — скажи явно, не «исправляй» оттенок бренда.
 
 ```js
 // scripts/generate-theme.mjs — node scripts/generate-theme.mjs
