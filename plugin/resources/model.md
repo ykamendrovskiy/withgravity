@@ -6,7 +6,7 @@
 | Объект | Экземпляр живёт | Плагин знает |
 |---|---|---|
 | Component | установленный пакет `@gravity-ui/*` + официальный скилл | грабли по пакету `traps/<пакет>.md` (индекс `traps.json`), errata к официальному |
-| Service | `service-profile.json` + `theme/` + `libraries` в проекте/пакете; темы брендов без профиля — `themes/<slug>/` пакета (`pack.json` → `themes`) | схему, валидатор (`profile/validate.mjs`), как применять (`profile/README.md`) |
+| Service | `service-profile.json` + `theme/` (+ `themeConfig.variants`) + `libraries` в проекте/пакете команды (`pack.json` → `profiles[].has`) | схему, валидатор (`profile/validate.mjs`), как применять (`profile/README.md`) |
 | Template (app · screen · section) | `templates/<id>/` в пакете команды; у плагина — только `app-shell` | карточка источника (версия, перечень изменений, адресация экранов) и запись использования `TemplateUse` (`mode: copy \| import`); операции: взять (build) · изменить источник (profile) · сравнить (verify) |
 | State | `states.json` | виды состояний с применимостью, показом, достижением, проверкой |
 | Convention | `conventions.json` (owner plugin) · `profile.conventions[]` (owner service) | запись: `id · applies_to{all:[{fact,eq}]} · owner · strength · rule · how · check{method,id} · source` |

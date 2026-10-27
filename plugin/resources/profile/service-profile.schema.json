@@ -103,6 +103,33 @@
             "source": {
               "type": "string",
               "description": "Провенанс: чем/из чего сгенерировано (напр. «Themer-экспорт ‘Orange by albe’»)."
+            },
+            "variants": {
+              "type": "array",
+              "description": "Варианты темы внутри профиля (например, цвет подуровня бренда). При выборе профиля с вариантами build задаёт уточняющий вопрос и копирует css выбранного варианта вместо themeConfig.css.",
+              "items": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "title",
+                  "css"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "css": {
+                    "type": "string"
+                  },
+                  "note": {
+                    "type": "string"
+                  }
+                }
+              }
             }
           }
         },

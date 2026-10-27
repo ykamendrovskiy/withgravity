@@ -1,6 +1,6 @@
 {
   "name": "withgravity",
-  "version": "0.9.23",
+  "version": "0.9.24",
   "description": "Сборка и доработка прототипов на Gravity UI поверх официального скилла gravity-ui: корректность компонентов — у официального; плагин держит модель сервиса (профиль, шаблоны, записи конвенций и состояний, план приёмки, проверки) и процедуры build · research-prototype · profile · verify · catalog · feedback.",
   "author": {
     "name": "ykamendrovskiy",
