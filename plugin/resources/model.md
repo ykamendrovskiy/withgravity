@@ -15,7 +15,7 @@
 | Check | реестр `verify/harness/checks.json` + вердикт | три оси: execution done / not-run{причина} · result pass / fail / inconclusive / n-a · evidence (метод · исполнитель · область · ревизия · замер); непроверенное ≠ успех |
 | KnownLimitation | `verify/harness/known-limitations.json` | классифицирует находку (селектор · контекст · тема · штатный токен), не удаляет её; `versions` пока не исполняется |
 | Errata | `errata-official-skill.md` | строка · источник · версия · условие удаления |
-| (Evidence) | лаборатория | поле `source` у записей |
+| (Evidence) | свидетельства проверки | поле `source` у записей |
 
 Связи: Service задаёт тему/плотность/раскладку/политики/словарь, ссылается на Template и `libraries` · Template состоит из секций и
 Component · Convention и State применяются при признаках AcceptancePlan, проверяются Check по `check.id` · build пишет план, verify его

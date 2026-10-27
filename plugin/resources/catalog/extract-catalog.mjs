@@ -164,7 +164,7 @@ if (walk('src/components').some((f) => f.endsWith('.scss'))) add({id: 'conv-styl
 const exampleDirs = walk('src/content').filter((f) => /examples\/components\/.*\.tsx$/.test(f));
 if (exampleDirs.length) add({id: 'conv-live-examples', kind: 'convention', title: 'Живые примеры для документации', code: [rel(path.dirname(exampleDirs[0])) + '/'], rule: `Примеры — файлы *Example.tsx в ${rel(path.dirname(exampleDirs[0]))} (${exampleDirs.length} шт.)`, where: ['src/content/**/examples/components/**'], signals: {}});
 const nextCfg = exists('next.config.js') ? read('next.config.js') : '';
-// ссылки только на существующие файлы (ревью Codex v0.6.1: конфиг не выдумываем)
+// ссылки только на существующие файлы (конфиг не выдумываем)
 const routingFiles = ['next.config.js', 'src/middleware.ts'].filter((f) => exists(f));
 if (routingFiles.length) add({id: 'conv-routing', kind: 'convention', title: 'Маршрутизация и переезды адресов', code: routingFiles, rule: `${exists('next.config.js') ? `redirects() в next.config.js: ${/redirects\s*\(/.test(nextCfg) ? 'есть' : 'нет'}; ` : ''}middleware: ${exists('src/middleware.ts') ? 'есть' : 'нет'}`, where: routingFiles, signals: {}});
 
