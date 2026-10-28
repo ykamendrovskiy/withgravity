@@ -8,7 +8,7 @@
     {
       "name": "withgravity",
       "source": "./plugin",
-      "description": "Сборка и доработка прототипов на Gravity UI поверх официального скилла gravity-ui: корректность компонентов — у официального; плагин держит модель сервиса (профиль, шаблоны, записи конвенций и состояний, план приёмки, проверки) и процедуры build · research-prototype · profile · verify · catalog · feedback; figma-read / figma-write — экспериментально."
+      "description": "Сборка и доработка прототипов на Gravity UI поверх официального скилла gravity-ui: корректность компонентов — у официального; плагин держит модель сервиса (профиль, шаблоны, записи конвенций и состояний, план приёмки, проверки) и процедуры build · research-prototype · profile · verify · catalog · feedback; figma-read / figma-write / figma-index — экспериментально."
     }
   ]
 }

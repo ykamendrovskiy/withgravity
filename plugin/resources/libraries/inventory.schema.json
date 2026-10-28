@@ -1,0 +1,113 @@
+{
+ "$schema": "http://json-schema.org/draft-07/schema#",
+ "title": "Figma library inventory (опись) — стабильная часть",
+ "type": "object",
+ "required": [
+  "schemaVersion",
+  "libraryId",
+  "inventoryRevision",
+  "components"
+ ],
+ "additionalProperties": false,
+ "properties": {
+  "schemaVersion": {
+   "type": "string"
+  },
+  "libraryId": {
+   "type": "string"
+  },
+  "inventoryRevision": {
+   "type": "string"
+  },
+  "description": {
+   "type": "string"
+  },
+  "components": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "logicalId",
+     "name",
+     "kind"
+    ],
+    "additionalProperties": false,
+    "properties": {
+     "logicalId": {
+      "type": "string"
+     },
+     "name": {
+      "type": "string"
+     },
+     "kind": {
+      "type": "string",
+      "enum": [
+       "set",
+       "component",
+       "icon",
+       "style",
+       "variable"
+      ]
+     },
+     "variantAxes": {
+      "type": "object",
+      "additionalProperties": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      }
+     },
+     "properties": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "required": [
+        "name",
+        "type"
+       ],
+       "additionalProperties": false,
+       "properties": {
+        "name": {
+         "type": "string"
+        },
+        "type": {
+         "type": "string",
+         "enum": [
+          "TEXT",
+          "BOOLEAN",
+          "INSTANCE_SWAP",
+          "VARIANT",
+          "SLOT"
+         ]
+        }
+       }
+      }
+     },
+     "codeMappingRef": {
+      "type": "string"
+     },
+     "notes": {
+      "type": "string"
+     },
+     "page": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "tokens": {
+   "type": "object",
+   "additionalProperties": {
+    "type": "string"
+   },
+   "description": "семантическое имя → назначение"
+  },
+  "dependencies": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  }
+ }
+}

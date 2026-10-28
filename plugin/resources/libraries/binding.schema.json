@@ -1,0 +1,11 @@
+{"$schema":"http://json-schema.org/draft-07/schema#","title":"Figma library binding (привязка) — конкретная публикация/копия",
+ "type":"object","required":["schemaVersion","libraryId","inventoryRevision","source","indexedAt","components"],"additionalProperties":false,
+ "properties":{"schemaVersion":{"type":"string"},"libraryId":{"type":"string"},"inventoryRevision":{"type":"string"},
+  "source":{"type":"object","required":["kind"],"additionalProperties":false,"properties":{"kind":{"type":"string","enum":["published-library","local-file"]},"libraryKey":{"type":"string"},"fileKey":{"type":"string"},"originUrl":{"type":"string"},"sourceRevision":{"type":"string"}}},
+  "indexedAt":{"type":"string"},"lastVerifiedAt":{"type":"string"},"indexedBy":{"type":"string"},
+  "components":{"type":"array","items":{"type":"object","required":["logicalId","status"],"additionalProperties":false,
+    "properties":{"logicalId":{"type":"string"},"key":{"type":"string"},"nodeId":{"type":"string"},"propertyNames":{"type":"object","additionalProperties":{"type":"string"},"description":"логическое имя свойства → фактическое (с суффиксом #id)"},
+     "variants":{"type":"array","items":{"type":"string"}},"status":{"type":"string","enum":["bound","unresolved","ambiguous"]},"note":{"type":"string"}}}},
+  "variables":{"type":"object","additionalProperties":{"type":"object","additionalProperties":false,"properties":{"collection":{"type":"string"},"modes":{"type":"array","items":{"type":"string"}},"key":{"type":"string"}}}},
+  "styles":{"type":"object","additionalProperties":{"type":"string"}},
+  "compatibility":{"type":"object","additionalProperties":{"type":"string"}}}}
