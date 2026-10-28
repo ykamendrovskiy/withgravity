@@ -8,4 +8,6 @@
      "variants":{"type":"array","items":{"type":"string"}},"status":{"type":"string","enum":["bound","unresolved","ambiguous"]},"note":{"type":"string"}}}},
   "variables":{"type":"object","additionalProperties":{"type":"object","additionalProperties":false,"properties":{"collection":{"type":"string"},"modes":{"type":"array","items":{"type":"string"}},"key":{"type":"string"}}}},
   "styles":{"type":"object","additionalProperties":{"type":"string"}},
+  "variableCollections":{"type":"object","description":"коллекции переменных исходника: имя → {key, modes[], count} + заметки о публикации","additionalProperties":{"type":"object","required":["key"],"properties":{"key":{"type":"string"},"modes":{"type":"array","items":{"type":"string"}},"count":{"type":"number"},"variables":{"type":"number"},"published":{"type":"number"},"note":{"type":"string"},"values":{"type":"object"}}}},
+  "themesExtract":{"type":"object","description":"снимок значений темы, снятый с переменных исходника (путь, файл, дата, кто собрал)"},
   "compatibility":{"type":"object","additionalProperties":{"type":"string"}}}}

@@ -17,7 +17,7 @@ npx skills add gravity-ui/skills        # официальный скилл — 
 Полная проверка — Playwright: `npm i -g playwright && playwright install chromium`; без него гейт работает в static-only.
 
 ## Что внутри
-Чтение макетов Figma (`figma-read`) и перенос в Figma (`figma-write`) — экспериментально; нужен Figma MCP и паспорта библиотек из пакета команды.
+Чтение макетов Figma (`figma-read`) и перенос в Figma (`figma-write`) — экспериментально; нужен Figma MCP и паспорта библиотек из пакета команды; настройка — `plugin/resources/figma-setup.md`.
 Скиллы `build` · `research-prototype` · `profile` · `verify` · `catalog` · `feedback` · `figma-read` · `figma-write` · `figma-index` (экспериментальные).
 Модель — `plugin/resources/model.md`; что считается проверенным — `plugin/skills/verify/harness/HARNESS.md`; ограничения и
 экспериментальное — `plugin/README.md`.
