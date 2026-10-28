@@ -24,5 +24,5 @@ Component · Convention и State применяются при признака�
 
 Артефакты конвейера: профиль · карточка шаблона + TemplateUse · записи конвенций/состояний · спецификация (`spec.md`) · план приёмки ·
 манифест сценариев · вердикт (`verdict.json`: находки · покрытие · checks · known) + AUDIT.md · `proposals.json`
-(`{schemaVersion, proposals[]}`) · errata. Скиллы — операции над этими файлами: `build` (4 маршрута) · `research-prototype` ·
+(`{schemaVersion, proposals[]}`) · errata. Скиллы — операции над этими файлами: `build` (4 маршрута) · `figma-read` → spec для build · `figma-write` (экспериментальные) · `research-prototype` ·
 `profile` · `verify` (3 режима) · `feedback`. Figma-конвейер (`figma-read` → спецификация → build → `figma-write`) — вне поставки: внутренняя библиотека команды, экспериментально; подключается отдельным пакетом/плагином команды.
